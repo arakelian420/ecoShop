@@ -1,0 +1,154 @@
+# Project Development Rules and Guidelines
+
+## Next.js Server Component Rules
+1. All components in the app directory are Server Components by default
+2. Only add "use client" directive when component REQUIRES client-side features
+3. Keep as much logic as possible in Server Components to reduce client-side JavaScript
+4. **Document component type conversion**: Add a comment and notify team when converting between Server and Client components
+5. **Track Server/Client boundaries**: Document clear boundaries between Server and Client code sections
+
+## Data Fetching Guidelines
+1. Fetch data on the server whenever possible (in Server Components)
+2. Use React Server Components for data fetching instead of getServerSideProps/getStaticProps
+3. Implement proper error and loading states for all data fetches
+4. Cache data appropriately using Next.js caching mechanisms
+
+## Component Development Rules
+1. Mark all components clearly as Server or Client components
+2. Document the purpose and rendering location of each component
+3. Keep client components lightweight and focused on interactivity
+4. Avoid useState/useEffect in components that could be Server Components
+5. **Add component ownership**: Document which developer owns each component in comments
+6. **Add component status**: Track if component is WIP, REVIEW, STABLE, or DEPRECATED
+7. **Record last modified**: Note the last modification date in component comments
+
+## File Structure Requirements
+1. Follow Next.js 13+ app directory structure
+2. Use appropriate file naming: page.js, layout.js, loading.js, error.js
+3. Organize components by feature rather than type
+4. Keep API routes in the appropriate location (/app/api/...)
+
+## Route Handlers Best Practices
+1. Use Route Handlers (app/api) for API functionality
+2. Implement proper error handling in all route handlers
+3. Validate input data in route handlers
+4. Document API endpoints with expected inputs and outputs
+
+## State Management
+1. Keep as much state on the server as possible
+2. Use React Server Components to avoid unnecessary client-side state
+3. For client state, prefer React's built-in state management (useState, useReducer)
+4. Document all state management decisions
+
+## Development Process
+1. Document technical decisions after each significant implementation
+2. Update component documentation when making changes
+3. Create detailed notes for server vs. client rendering choices
+4. Write tests for critical functionality
+5. **Coordinate concurrent development**: Communicate when working on interconnected components
+6. **Request review for shared code**: Ask for review when modifying code used by multiple developers
+7. **Track AI contributions**: Document when code was significantly influenced by Claude 3.7
+
+## Next.js Specific Error Prevention
+1. Don't use browser-only APIs in Server Components
+2. Don't import Server Components into Client Components
+3. Don't use client hooks (useState, useEffect, etc.) in Server Components
+4. Don't mix "use client" and Server Component code in the same file
+5. Use proper data fetching patterns for each component type
+6. Be aware of Next.js caching behavior and RSC boundaries
+
+## Code Review Guidelines
+1. Verify server/client component boundaries are properly maintained
+2. Check that data fetching follows best practices
+3. Ensure proper error handling is implemented
+4. Confirm documentation is updated with implementation details
+
+## Testing Standards
+1. Write tests for all critical components and functionality
+2. Test both server and client components appropriately
+3. Create integration tests for complex page interactions
+4. Maintain test coverage above the established thresholds
+5. Test both success and error states for data fetching components
+6. Include accessibility testing in component test suites
+
+## Accessibility Requirements
+1. All interactive elements must be keyboard accessible
+2. Ensure proper contrast ratios for all text content
+3. Provide appropriate ARIA labels for non-standard UI elements
+4. Ensure screen reader compatibility for all components
+5. Implement focus management for modal dialogs and complex widgets
+6. Test all components with screen readers periodically
+
+## Performance Optimization
+1. Use appropriate image optimization via Next.js Image component
+2. Implement code splitting for large client components
+3. Minimize client-side JavaScript by leveraging Server Components
+4. Optimize and monitor bundle sizes
+5. Use React.lazy and dynamic imports for non-critical components
+6. Consider selective hydration techniques for complex pages
+7. Monitor and improve Core Web Vitals metrics
+
+## Deployment Process
+1. Create a deployment checklist for each production release
+2. Verify all environment variables are properly configured
+3. Run full test suite before deployment
+4. Implement staging environment testing before production deploy
+5. Use feature flags for gradual rollout of complex features
+6. Document deployment and rollback procedures
+
+## Internationalization (i18n) Guidelines
+1. Use a consistent approach for all translations
+2. Avoid hardcoded strings in components
+3. Structure translation files logically by feature
+4. Consider right-to-left (RTL) layout support
+5. Test UI in all supported languages
+
+## Advanced App Router Techniques
+1. Use parallel routes for complex UI with independent loading states
+2. Implement intercepting routes for modals and special views
+3. Create appropriate error and loading states for each route segment
+4. Use route groups to organize the file system without affecting URL structure
+5. Leverage server-side compositions for optimal data fetching
+6. Implement streaming for improved user experience
+7. Use generateStaticParams for static routes where appropriate
+
+## Code Quality Maintenance
+1. Regularly review dependencies and keep them updated
+2. Refactor duplicate code into shared utilities or components
+3. Monitor bundle size and implement optimizations as needed
+4. Implement automated code quality checks in CI/CD pipeline
+5. Document complex algorithms and data structures
+6. Use type-safety throughout the application
+
+## Team Collaboration Rules
+
+1. **File Ownership**: Respect file ownership - consult with the owner before making substantial changes
+2. **Branch Naming**: Use your developer identifier in branch names: `feature/[dev-id]-feature-name`
+3. **Pre-Push Protocol**: Always pull and resolve conflicts before pushing to remote
+4. **Component Status**: Mark all components with their current status (WIP/REVIEW/STABLE/DEPRECATED)
+5. **Owner Documentation**: Document component ownership in JSDoc comments
+6. **Shared Component Protocol**: Get team review before modifying shared components
+7. **Lock Communication**: Communicate when you're locking a file for significant changes
+8. **API Contract Preservation**: Don't modify API contracts without team agreement
+9. **Immediate Merge Resolution**: Resolve merge conflicts immediately when they occur
+10. **Breaking Change Notification**: Notify team before implementing breaking changes
+
+## Modified Component Development Rules
+
+1. Mark all components clearly as Server or Client components
+2. Document the purpose and rendering location of each component
+3. Keep client components lightweight and focused on interactivity
+4. Avoid useState/useEffect in components that could be Server Components
+5. **Add component ownership**: Document which developer owns each component in comments
+6. **Add component status**: Track if component is WIP, REVIEW, STABLE, or DEPRECATED
+7. **Record last modified**: Note the last modification date in component comments
+
+## Modified Development Process
+
+1. Document technical decisions after each significant implementation
+2. Update component documentation when making changes
+3. Create detailed notes for server vs. client rendering choices
+4. Write tests for critical functionality
+5. **Coordinate concurrent development**: Communicate when working on interconnected components
+6. **Request review for shared code**: Ask for review when modifying code used by multiple developers
+7. **Track AI contributions**: Document when code was significantly influenced by Claude 3.7 
