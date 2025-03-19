@@ -1,0 +1,272 @@
+{
+  "autocomplete": {
+    "includedFileTypes": ["js", "ts", "jsx", "tsx", "css", "html", "json"],
+    "excludedFileTypes": ["md", "txt"],
+    "excludedDirs": ["node_modules", "dist", "build", ".git"]
+  },
+  "formatOnSave": true,
+  "linting": {
+    "enabled": true,
+    "eslint": {
+      "enabled": true,
+      "autofix": true
+    }
+  },
+  "snippets": {
+    "suggest": true
+  },
+  "telemetry": {
+    "enabled": false
+  },
+  "git": {
+    "autoInit": true,
+    "autoBranching": {
+      "enabled": true,
+      "prefixes": {
+        "feature": "feature/",
+        "bugfix": "bugfix/",
+        "hotfix": "hotfix/",
+        "release": "release/"
+      },
+      "trackBranches": true
+    },
+    "autoCommit": {
+      "enabled": true,
+      "frequency": "significant-changes",
+      "minChanges": 10,
+      "message": "Auto-commit: Significant changes [cursor-auto]"
+    },
+    "autoPush": {
+      "enabled": true,
+      "frequency": "after-commits",
+      "remoteNames": ["origin"]
+    },
+    "visualizeBranches": true,
+    "statusChecks": {
+      "interval": "5min",
+      "showStatus": true
+    },
+    "collaborationBranching": {
+      "enforceNaming": true,
+      "developerPrefix": true,
+      "preventDirectMainCommits": true,
+      "requirePullBeforePush": true
+    },
+    "conflictResolution": {
+      "notifications": true,
+      "preserveComments": true,
+      "suggestionMode": "interactive"
+    },
+    "commitMessages": {
+      "enforceConvention": true,
+      "template": "[{developer}] {type}: {message}",
+      "requireScope": true,
+      "types": ["feat", "fix", "docs", "style", "refactor", "test", "chore"]
+    }
+  },
+  "editor": {
+    "tabSize": 2,
+    "insertSpaces": true,
+    "wordWrap": "on",
+    "rulers": [80, 120],
+    "fontFamily": "Fira Code, Consolas, monospace",
+    "fontLigatures": true,
+    "autoIndent": true,
+    "detectIndentation": true,
+    "trimTrailingWhitespace": true,
+    "insertFinalNewline": true,
+    "bracketPairColorization": true
+  },
+  "terminal": {
+    "integrated": true,
+    "shell": "zsh",
+    "scrollback": 5000
+  },
+  "ai": {
+    "autoSuggest": true,
+    "contextWindowLines": 500,
+    "saveSuggestionHistory": true,
+    "documentationGeneration": {
+      "enabled": true,
+      "style": "jsdoc"
+    }
+  },
+  "autoSave": {
+    "enabled": true,
+    "delay": 1000
+  },
+  "debugging": {
+    "breakpointsActivatedByDefault": true,
+    "inlineValues": true,
+    "toolbarVisible": true
+  },
+  "files": {
+    "exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/.cache": true,
+      "**/coverage": true
+    },
+    "associations": {
+      "*.njk": "html",
+      "*.ejs": "html",
+      "*.mdx": "markdown"
+    },
+    "maxFileSizeForFullParsing": 5
+  },
+  "notifications": {
+    "silent": false,
+    "bellSound": false
+  },
+  "search": {
+    "quickOpen": {
+      "history": 50
+    },
+    "exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/*.min.*": true
+    }
+  },
+  "performance": {
+    "lazyLoading": true,
+    "codeAnalysis": {
+      "maxFilesAnalyzed": 5000
+    }
+  },
+  "projectDocumentation": {
+    "enabled": true,
+    "autoGenerate": true,
+    "updateOnCommit": true,
+    "structure": {
+      "technology": {
+        "trackUsage": true,
+        "generateTechStack": true
+      },
+      "components": {
+        "trackServerComponents": true,
+        "trackClientComponents": true,
+        "requireComments": true
+      },
+      "dataFetching": {
+        "trackMethods": true,
+        "warnClientFetching": true
+      }
+    },
+    "templates": {
+      "componentComment": "/**\n * @component {ServerComponent|ClientComponent}\n * @description Purpose of this component\n * @renderLocation {Server|Client|Both}\n * @dataFetching Method used for data fetching if applicable\n * @sideEffects List any side effects if applicable\n */",
+      "pageDocs": "# Page: {name}\n\n## Rendering Strategy\n- [ ] Server-side rendered\n- [ ] Static site generation\n- [ ] Client-side rendering\n- [ ] Incremental Static Regeneration\n\n## Data Fetching Methods\n- Methods used:\n\n## Components\n- List of components used:\n\n## Notes\n- Special considerations:"
+    },
+    "reminders": {
+      "nextjsServerComponents": true,
+      "dataFetchingBestPractices": true
+    },
+    "teamCoordination": {
+      "trackComponentOwnership": true,
+      "recordLastModified": true,
+      "statusTracking": ["WIP", "REVIEW", "STABLE", "DEPRECATED"],
+      "generateOwnershipMap": true
+    }
+  },
+  "nextjs": {
+    "trackServerComponents": true,
+    "lintServerActions": true,
+    "enforceDataFetchingPatterns": true,
+    "warnClientSideDataFetching": true,
+    "checkRouteStructure": true
+  },
+  "testing": {
+    "enabled": true,
+    "autoGenerateTests": true,
+    "frameworks": {
+      "jest": true,
+      "testingLibrary": true,
+      "cypress": false,
+      "playwright": true
+    },
+    "testCoverage": {
+      "enabled": true,
+      "warnLowCoverage": true,
+      "thresholds": {
+        "statements": 75,
+        "branches": 70,
+        "functions": 80,
+        "lines": 75
+      }
+    },
+    "templates": {
+      "componentTest": "import { render, screen } from '@testing-library/react';\nimport '@testing-library/jest-dom';\nimport ComponentName from './ComponentName';\n\ndescribe('ComponentName', () => {\n  it('renders correctly', () => {\n    render(<ComponentName />);\n    // Add assertions here\n  });\n});"
+    }
+  },
+  "accessibility": {
+    "checkOnBuild": true,
+    "warnIssues": true,
+    "rules": {
+      "aria": true,
+      "focus": true,
+      "semantics": true,
+      "contrast": true
+    }
+  },
+  "deployment": {
+    "trackEnvironmentConfig": true,
+    "generateDeploymentChecklist": true,
+    "environmentVariables": {
+      "checkMissing": true,
+      "suggestSensitiveVars": true
+    }
+  },
+  "i18n": {
+    "enabled": false,
+    "defaultLocale": "en",
+    "trackMissingTranslations": true,
+    "suggestTranslationKeys": true
+  },
+  "codeQuality": {
+    "trackDependencies": true,
+    "detectDuplicateCode": true,
+    "suggestRefactoring": true,
+    "codeSplitting": {
+      "monitor": true,
+      "suggestSplitting": true
+    }
+  },
+  "appRouter": {
+    "enforceConventions": true,
+    "validateMetadata": true,
+    "checkParallelRoutes": true,
+    "suggestOptimizations": true,
+    "trackDynamicRoutes": true,
+    "errorBoundaryChecks": true,
+    "loadingStateChecks": true,
+    "interceptionRoutingGuide": true
+  },
+  "collaboration": {
+    "enabled": true,
+    "fileLocking": {
+      "enabled": true,
+      "autoRelease": "15min",
+      "showLockStatus": true
+    },
+    "workspaceAwareness": {
+      "showActiveDevelopers": true,
+      "showActiveFiles": true
+    },
+    "changeNotifications": {
+      "enabled": true,
+      "scope": ["project-structure", "shared-components", "configuration-files"]
+    },
+    "ownershipTracking": {
+      "enabled": true,
+      "markInComments": true,
+      "directories": {
+        "components": true,
+        "pages": true,
+        "api": true,
+        "utils": true
+      }
+    }
+  }
+} 
